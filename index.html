@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Joey Dufourd - Homepage</title>
+  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: "Source Sans Pro", Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f9fafc;
+      color: #2c3e50;
+    }
+
+    header {
+      background: url("./assets/banner.gif") center 80%/cover no-repeat;
+      color: white;
+      padding: 4em 1em 3em 1em;
+      text-align: center;
+      position: relative;
+    }
+
+    header::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(0,0,0,0.4);
+    }
+
+    header .content {
+      position: relative;
+      z-index: 1;
+    }
+
+    .profile-pic {
+      width: 140px;
+      height: 140px;
+      border-radius: 50%;
+      border: 4px solid white;
+      object-fit: cover;
+      margin-bottom: 1em;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.4);
+    }
+
+    header h1 {
+      margin: 0;
+      font-weight: 600;
+      font-size: 2.2em;
+    }
+
+    header p {
+      margin-top: 0.5em;
+      font-size: 1.2em;
+      font-weight: 300;
+    }
+
+    main {
+      max-width: 900px;
+      margin: auto;
+      padding: 2em 1em;
+    }
+
+    section {
+      margin-bottom: 2em;
+    }
+
+    section h2 {
+      border-left: 4px solid #007acc;
+      padding-left: 0.5em;
+      font-weight: 600;
+      margin-bottom: 1em;
+      color: #005b9f;
+    }
+
+    .card {
+      background: white;
+      border-radius: 8px;
+      padding: 1.2em;
+      margin: 0.8em 0;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+    }
+
+    .card a {
+      color: #2c3e50;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1.05em;
+    }
+
+    .card a:hover {
+      color: #007acc;
+    }
+
+    footer {
+      text-align: center;
+      padding: 1.5em;
+      font-size: 0.9em;
+      color: #666;
+      border-top: 1px solid #eee;
+    }
+
+    .disabled-link {
+      cursor: not-allowed;
+      color: #999;
+      text-decoration: none;
+    }
+
+    .disabled-link:active,
+    .disabled-link:focus {
+      pointer-events: none;
+    }
+  </style>
+</head>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<body>
+
+  <header>
+    <div class="content">
+      <img src="./assets/joey.jpg" alt="Joey Dufourd" class="profile-pic">
+      <h1>Joey Dufourd</h1>
+      <p>Biology • Bioinformatics • Big data & Data Science</p>
+      <p>Website is still a work in progress</p>
+    </div>
+  </header>
+
+  <main>
+    <section>
+      <h2>Public analysis</h2>
+      <div class="card"><a href="/Sarcomas-and-TELS1.html">1. Sarcomas and TELS1</a></div>
+    </section>
+
+    <section>
+      <h2>Blog</h2>
+      <div class="card"><a href="/blog.html" class="disabled-link">Personal Blog (WIP)</a></div>
+    </section>
+
+    <section>
+      <h2>Professional Links</h2>
+      <div class="card"><a href="https://www.linkedin.com/in/joey-dufourd/"><i class="fab fa-linkedin"></i> LinkedIn</a></div>
+      <div class="card"><a href="https://orcid.org/0000-0002-4138-3672"><i class="fa-solid fa-dna"></i> ORCID</a></div>
+      <div class="card"><a href="cv.pdf" class="disabled-link"><i class="fa-solid fa-file-lines"></i> Download CV (WIP)</a></div>
+      <div class="card"><a href="mailto:joey.dufourd+github@gmail.com"><i class="fa-solid fa-envelope"></i> Contact Me</a></div>
+      <div class="card"><a href="https://github.com/joeydufourd"><i class="fab fa-github"></i> GitHub</a></div>
+    </section>
+
+    <section>
+      <h2>More is coming soon</h2>
+      <div class="card"><a href="" class="disabled-link">Work in progress</a></div>
+    </section>
+  </main>
+
+  <footer>
+    © 2025 Joey Dufourd · Built with ❤️ and Pandoc-inspired style
+  </footer>
+
+</body>
+</html>
