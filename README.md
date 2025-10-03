@@ -2,6 +2,8 @@
 
 This repository contains the source code for my personal website, showcasing my work in **Biology, Bioinformatics, Big Data, and Data Science**.  
 
+[Access the website](https://joeydufourd.github.io/)
+
 The site includes:  
 - 🎓 **Research**: Public analyses (e.g. *Sarcomas and TELS1*)  
 - ✍️ **Blog**: Space for posts & thoughts (currently WIP)  
