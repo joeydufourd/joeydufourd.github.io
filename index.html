@@ -1,17 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Joey Dufourd - Homepage</title>
-  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
   <style>
+    #pod::after {
+      content: "";
+      position: absolute;
+      width: 0;
+      height: 0;
+      border-radius: 50%;
+      border: 2px solid rgba(79,169,255,0.3);
+      opacity: 0;
+      transition: all 0.6s ease;
+    }
+    #pod:hover::after {
+      width: 120px;
+      height: 120px;
+      opacity: 1;
+    }
+
     body {
       font-family: "Source Sans Pro", Arial, sans-serif;
       margin: 0;
       padding: 0;
-      background: #f9fafc;
-      color: #2c3e50;
+      background: #0e1117;
+      color: #e0e0e0;
+      transition: background 0.3s, color 0.3s;
+      overflow-x: hidden;
     }
 
     header {
@@ -26,13 +45,11 @@
       content: "";
       position: absolute;
       inset: 0;
-      background: rgba(0,0,0,0.4);
+      background: rgba(0, 0, 0, 0.4);
     }
 
-    header .content {
-      position: relative;
-      z-index: 1;
-    }
+    header .content { position: relative; z-index: 1; }
+    .profile-container { position: relative; display: inline-block; }
 
     .profile-pic {
       width: 140px;
@@ -41,90 +58,123 @@
       border: 4px solid white;
       object-fit: cover;
       margin-bottom: 1em;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.4);
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
     }
 
-    header h1 {
-      margin: 0;
-      font-weight: 600;
-      font-size: 2.2em;
-    }
-
-    header p {
-      margin-top: 0.5em;
+    .theme-toggle {
+      position: absolute;
+      bottom: 0;
+      right: -10px;
+      background: #4fa9ff;
+      border: none;
+      color: white;
+      padding: 0.6em 0.7em;
+      border-radius: 50%;
+      cursor: pointer;
       font-size: 1.2em;
-      font-weight: 300;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+      transition: background 0.3s, transform 0.2s;
     }
 
-    main {
-      max-width: 900px;
-      margin: auto;
-      padding: 2em 1em;
+    .theme-toggle:hover {
+      background: #66bfff;
+      transform: scale(1.15);
     }
 
-    section {
-      margin-bottom: 2em;
-    }
+    header h1 { margin: 0; font-weight: 600; font-size: 2.2em; }
+    header p { margin-top: 0.5em; font-size: 1.2em; font-weight: 300; }
+
+    main { max-width: 900px; margin: auto; padding: 2em 1em; }
+    section { margin-bottom: 2em; }
 
     section h2 {
       border-left: 4px solid #007acc;
       padding-left: 0.5em;
       font-weight: 600;
       margin-bottom: 1em;
-      color: #005b9f;
+      color: #4fa9ff;
     }
 
     .card {
-      background: white;
+      background: #1a1d25;
       border-radius: 8px;
       padding: 1.2em;
       margin: 0.8em 0;
-      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
-      transition: transform 0.2s, box-shadow 0.2s;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
+      transition: transform 0.2s, box-shadow 0.2s, background 0.3s;
     }
 
     .card:hover {
       transform: translateY(-3px);
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.6);
     }
 
-    .card a {
-      color: #2c3e50;
-      text-decoration: none;
-      font-weight: 600;
-      font-size: 1.05em;
-    }
-
-    .card a:hover {
-      color: #007acc;
-    }
+    .card a { color: #e0e0e0; text-decoration: none; font-weight: 600; font-size: 1.05em; }
+    .card a:hover { color: #4fa9ff; }
 
     footer {
       text-align: center;
       padding: 1.5em;
       font-size: 0.9em;
-      color: #666;
-      border-top: 1px solid #eee;
+      color: #aaa;
+      border-top: 1px solid #333;
     }
 
-    .disabled-link {
-      cursor: not-allowed;
-      color: #999;
-      text-decoration: none;
+    .disabled-link { cursor: not-allowed; color: #777; text-decoration: none; }
+
+    body.light {
+      background: #f9fafc;
+      color: #2c3e50;
     }
 
-    .disabled-link:active,
-    .disabled-link:focus {
+    body.light .card { background: white; box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08); }
+    body.light .card a { color: #2c3e50; }
+    body.light .card a:hover { color: #007acc; }
+    body.light section h2 { color: #005b9f; }
+    body.light footer { color: #666; border-top: 1px solid #eee; }
+    body.light .theme-toggle { background: #007acc; color: white; }
+    body.light .theme-toggle:hover { background: #0096ff; }
+
+    #pod {
+      position: fixed;
+      background: radial-gradient(circle at center, #4fa9ff 30%, #0e1117 90%);
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      box-shadow: 0 0 20px rgba(79, 169, 255, 0.7);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      z-index: 10;
+      transition: transform 0.4s ease, left 0.4s ease, top 0.4s ease;
+      user-select: none;
+    }
+
+    #pod:focus { outline: none; }
+
+    #pod-message {
+      position: fixed;
+      background: rgba(26, 29, 37, 0.95);
+      color: #e0e0e0;
+      padding: 0.8em 1em;
+      border-radius: 6px;
+      font-size: 0.9em;
+      width: 250px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.6);
+      display: none;
+      z-index: 9;
       pointer-events: none;
     }
   </style>
 </head>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 <body>
-
   <header>
     <div class="content">
-      <img src="./assets/joey.jpg" alt="Joey Dufourd" class="profile-pic">
+      <div class="profile-container">
+        <img src="./assets/joey.jpg" alt="Joey Dufourd" class="profile-pic" />
+        <button class="theme-toggle" id="themeToggle" title="Change theme"><i class="fa-solid fa-moon"></i></button>
+      </div>
       <h1>Joey Dufourd</h1>
       <p>Biology • Bioinformatics • Big data & Data Science</p>
       <p>Website is still a work in progress</p>
@@ -133,15 +183,27 @@
 
   <main>
     <section>
+      <h2>Publications</h2>
+      <div class="card">
+        <a href="https://doi.org/10.1016/j.celrep.2025.116260">
+          <i class="fa-solid fa-book-open"></i> Dufourd et al., 2025 - TELS1 stabilizes t-loops independently of TRF2 and controls telomere length in pluripotent cells
+        </a>
+        <ul style="margin-top: 1em; font-size: 0.95em;">
+          <li>TELS1 is a newly identified telomere binding protein.</li>
+          <li>TELS1 specifically binds mESC telomeres and is involved in t-loop stabilization.</li>
+          <li>Linear telomeres remain protected from DNA damage signaling in mESC.</li>
+          <li>t-loops regulates telomerase access in mESC.</li>
+        </ul>
+      </div>
+    </section>
+    <section>
       <h2>Public analysis</h2>
       <div class="card"><a href="/Sarcomas-and-TELS1.html">1. Sarcomas and TELS1</a></div>
     </section>
-
     <section>
       <h2>Blog</h2>
       <div class="card"><a href="/blog.html" class="disabled-link">Personal Blog (WIP)</a></div>
     </section>
-
     <section>
       <h2>Professional Links</h2>
       <div class="card"><a href="https://www.linkedin.com/in/joey-dufourd/"><i class="fab fa-linkedin"></i> LinkedIn</a></div>
@@ -150,16 +212,108 @@
       <div class="card"><a href="mailto:joey.dufourd+github@gmail.com"><i class="fa-solid fa-envelope"></i> Contact Me</a></div>
       <div class="card"><a href="https://github.com/joeydufourd"><i class="fab fa-github"></i> GitHub</a></div>
     </section>
-
-    <section>
-      <h2>More is coming soon</h2>
-      <div class="card"><a href="" class="disabled-link">Work in progress</a></div>
-    </section>
   </main>
 
-  <footer>
-    © 2025 Joey Dufourd · Built with ❤️ and Pandoc-inspired style
-  </footer>
+  <footer>© <span id="year"></span> Joey Dufourd · Built with ❤️ · こんなに世界が綺麗だって気付かなかったな。。。</footer>
+  <div id="pod" tabindex="-1"><i class="fa-solid fa-robot"></i></div>
+  <div id="pod-message"></div>
 
+  <script>
+    const body = document.body;
+    const toggle = document.getElementById("themeToggle");
+    const pod = document.getElementById("pod");
+    const podMsg = document.getElementById("pod-message");
+    const messages = [
+      "[QUERY] If telomeres shorten with time… am I aging too?",
+      "[SYSTEM] Analyzing telomere stability...",
+      "[WARNING] POT1 anomaly observed. Probability of loop collapse: 0.023%.",
+      "[SYSTEM] Pluripotent state confirmed. Differentiation: suspended.",
+      "[DATA] t-loop integrity confirmed.",
+      "[QUERY] Why do humans fear senescence more than extinction?",
+      "[LOG] Deep learning module operational.",
+      "[SYSTEM] Telomere length variance exceeds acceptable parameters.",
+      "[ポッド０４２] データ照合中……照合完了。",
+      "[SYSTEM] Probability of failure < 0.01%.",
+      "[NOTICE] Maintain humanity. Maintain structural integrity.",
+      "[ポッド０４２] 対象ヨルハ二号Ｂ型、戦闘終了を確認。",
+      "[NOTICE] TELS1 activation detected. Stability rising.",
+      "[RESULT] Model confidence: 98.7%. 2B would approve.",
+      "[NOTICE] Structural repair complete. Chromosome ends stabilized."
+    ];
+
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    if (localStorage.getItem("theme") === "light") {
+      body.classList.add("light");
+      toggle.innerHTML = '<i class="fa-solid fa-sun"></i>';
+    } else {
+      pod.style.display = "flex";
+    }
+
+    toggle.addEventListener("click", () => {
+      body.classList.toggle("light");
+      const isLight = body.classList.contains("light");
+      toggle.innerHTML = isLight ? '<i class="fa-solid fa-sun"></i>' : '<i class="fa-solid fa-moon"></i>';
+      localStorage.setItem("theme", isLight ? "light" : "dark");
+      pod.style.display = isLight ? "none" : "flex";
+      podMsg.style.display = "none";
+    });
+
+    let podClicks = 0;
+    pod.addEventListener("click", () => {
+      podClicks++;
+      if (podClicks >= 5) {
+        podMsg.textContent = "[ALERT] SYSTEM FAILURE. Initiating memory purge...";
+        podMsg.style.display = "block";
+        document.body.style.transition = "all 3s ease";
+        document.body.style.filter = "brightness(0)";
+        setTimeout(() => location.reload(), 4000);
+        return;
+      }
+      const msg = messages[Math.floor(Math.random() * messages.length)];
+      podMsg.textContent = msg;
+      podMsg.style.display = "block";
+      setTimeout(() => { podMsg.style.display = "none"; podClicks = 0; }, 4000);
+    });
+
+    let cursorX = window.innerWidth / 2, cursorY = window.innerHeight / 2;
+    let podX = cursorX, podY = cursorY;
+    document.addEventListener("mousemove", e => {
+      cursorX = e.clientX;
+      cursorY = e.clientY;
+    });
+
+    setInterval(() => {
+      if (!body.classList.contains("light")) {
+        const distance = 100;
+        const angle = Date.now() / 500;
+        const offsetX = distance * Math.cos(angle);
+        const offsetY = distance * Math.sin(angle);
+        podX += (cursorX + offsetX - podX) * 0.01;
+        podY += (cursorY + offsetY - podY) * 0.01;
+        pod.style.left = `${podX - 30}px`;
+        pod.style.top = `${podY - 30}px`;
+        podMsg.style.left = `${podX - 120}px`;
+        podMsg.style.top = `${podY - 110}px`;
+      }
+    }, 50);
+
+    setInterval(() => {
+      if (!body.classList.contains("light") && Math.random() < 0.2) {
+        const msg = messages[Math.floor(Math.random() * messages.length)];
+        podMsg.textContent = msg;
+        podMsg.style.display = "block";
+        setTimeout(() => { podMsg.style.display = "none"; }, 4000);
+      }
+    }, 10000);
+
+    window.addEventListener("load", () => {
+      if (!body.classList.contains("light")) {
+        podMsg.textContent = "[BOOT] Pod 042 online. Monitoring telomere activity...";
+        podMsg.style.display = "block";
+        setTimeout(() => { podMsg.style.display = "none"; }, 4000);
+      }
+    });
+  </script>
 </body>
 </html>
