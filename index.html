@@ -166,6 +166,31 @@
       z-index: 9;
       pointer-events: none;
     }
+
+    .callout{
+      border:1px solid rgba(79,169,255,0.35);
+      background: rgba(79,169,255,0.06);
+      border-radius:10px;
+      padding:1em 1.1em;
+}
+    body.light .callout{
+      background: rgba(0,122,204,0.05);
+      border-color: rgba(0,122,204,0.25);
+}
+
+    #about {
+      margin-top: 1.5em;
+      margin-bottom: 1.5em;
+}
+    #about .card {
+      margin-top: 0.8em;
+      padding: 1em 1.4em;
+      border-radius: 10px;
+      border-left: 4px solid #4fa9ff;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+      line-height: 1.55;
+}
+
   </style>
 </head>
 <body>
@@ -182,6 +207,45 @@
   </header>
 
   <main>
+  <section id="about">
+    <h2><i class="fa-solid fa-user-astronaut"></i> About Me</h2>
+    <div class="card callout">
+      <p>I'm a molecular biologist with computational expertise, passionate about understanding life through science.
+          My PhD on telomere biology combined advanced molecular and imaging approaches (3D-SIM, proteomics) with custom computational pipelines in Python and R for image analysis, statistical modeling, computer vision and data integration.
+          Proficient in Bash, Python, and R, I leverage computational approaches to develop reproducible analytical workflows and explore complex biological systems.
+          I am convinced that integrating the strengths of wet-lab experimentation with the power of computational approaches will accelerate discoveries and enable transformative advances in biomedical research.<p>
+          <img src="https://img.shields.io/badge/Python-3670A0?logo=python&logoColor=ffdd54" alt="Python"/>
+          <img src="https://img.shields.io/badge/R-276DC3?logo=r&logoColor=white" alt="R"/>
+          <img src="https://img.shields.io/badge/TensorFlow-FF6F00?logo=tensorflow&logoColor=white" alt="TensorFlow"/>
+          <img src="https://img.shields.io/badge/Deep%20Learning-FF6F00?logo=tensorflow&logoColor=white" alt="Deep Learning"/>
+          <img src="https://img.shields.io/badge/PyTorch-EE4C2C?logo=pytorch&logoColor=white" alt="PyTorch"/>
+          <img src="https://img.shields.io/badge/NumPy-013243?logo=numpy&logoColor=white" alt="NumPy"/>
+          <img src="https://img.shields.io/badge/pandas-150458?logo=pandas&logoColor=white" alt="pandas"/>
+          <img src="https://img.shields.io/badge/Matplotlib-11557c?logo=plotly&logoColor=white" alt="Matplotlib"/>
+          <img src="https://img.shields.io/badge/Jupyter-F37626?logo=jupyter&logoColor=white" alt="Jupyter"/>
+          <img src="https://img.shields.io/badge/RStudio-75AADB?logo=rstudio&logoColor=white" alt="RStudio"/>
+          <img src="https://img.shields.io/badge/Bioconductor-339933?logo=bioconductor&logoColor=white" alt="Bioconductor"/>
+          <img src="https://img.shields.io/badge/Linux-FCC624?logo=linux&logoColor=black" alt="Linux"/>
+          <img src="https://img.shields.io/badge/Git-F05032?logo=git&logoColor=white" alt="Git"/>
+          <img src="https://img.shields.io/badge/ImageJ%20%2F%20Fiji-3A75B0?logo=imagej&logoColor=white" alt="ImageJ/Fiji"/>
+          <img src="https://img.shields.io/badge/CellProfiler-009688?logo=python&logoColor=white" alt="CellProfiler"/>
+          <img src="https://img.shields.io/badge/AlphaFold-4285F4?logo=google&logoColor=white" alt="AlphaFold"/>
+          <img src="https://img.shields.io/badge/Bash-121011?logo=gnubash&logoColor=white" alt="Bash"/>
+          <img src="https://img.shields.io/badge/conda-44A833?logo=anaconda&logoColor=white" alt="Conda"/>
+          <img src="https://img.shields.io/badge/scikit--learn-F7931E?logo=scikitlearn&logoColor=white" alt="scikit-learn"/>
+          <img src="https://img.shields.io/badge/venv-3776AB?logo=python&logoColor=white" alt="venv"/>
+          <img src="https://img.shields.io/badge/Markdown-000000?logo=markdown&logoColor=white" alt="Markdown"/>
+          <img src="https://img.shields.io/badge/LaTeX-008080?logo=latex&logoColor=white" alt="LaTeX"/>
+          <img src="https://img.shields.io/badge/ggplot2-1A162D?logo=r&logoColor=white" alt="ggplot2"/>
+          <img src="https://img.shields.io/badge/Plotly-3F4F75?logo=plotly&logoColor=white" alt="Plotly"/>
+          <img src="https://img.shields.io/badge/dplyr-276DC3?logo=r&logoColor=white" alt="dplyr"/>
+          <img src="https://img.shields.io/badge/Shiny-75AADB?logo=rstudio&logoColor=white" alt="Shiny"/>
+        </p>
+      </p>
+    </div>
+  </section>
+
+
     <section>
       <h2>Publications</h2>
       <div class="card">
@@ -197,21 +261,26 @@
       </div>
     </section>
     <section>
-      <h2>Public analysis</h2>
+      <h2>Projects & deeper research</h2>
       <div class="card"><a href="/Sarcomas-and-TELS1.html">1. Sarcomas and TELS1</a></div>
+      <div class="card"><a href="https://github.com/joeydufourd/telomere-dynamics-gillespie">2. Simulation of Telomere Dynamics using Gillespie algorithm</a></div>
+      <div class="card"><a href="https://github.com/joeydufourd/FIJI-Macros">3. Open-source ImageJ/FIJI macros</a></div>
+        <div class="card"><a href="https://2019.igem.org/Team:Montpellier">4. KARMA (iGEM 2019)</a></div>
     </section>
     <section>
       <h2>Blog</h2>
-      <div class="card"><a href="/blog.html" class="disabled-link">Personal Blog (WIP)</a></div>
+      <div class="card"><span href="/blog.html" class="disabled-link"><i class="fa-solid fa-pen-nib"></i> Personal Blog (WIP)</span></div>
     </section>
     <section>
       <h2>Professional Links</h2>
       <div class="card"><a href="https://www.linkedin.com/in/joey-dufourd/"><i class="fab fa-linkedin"></i> LinkedIn</a></div>
       <div class="card"><a href="https://orcid.org/0000-0002-4138-3672"><i class="fa-solid fa-dna"></i> ORCID</a></div>
-      <div class="card"><a href="cv.pdf" class="disabled-link"><i class="fa-solid fa-file-lines"></i> Download CV (WIP)</a></div>
+      <div class="card"><a href="./assets/CV-JoeyDufourd.pdf"><i class="fa-solid fa-file-lines"></i> Access my Curriculum Vitae</a></div>
+      <div class="card"><span href="./" class="disabled-link"><i class="fa-solid fa-book-open"></i> Access my Thesis (WIP)</span></div>
       <div class="card"><a href="mailto:joey.dufourd+github@gmail.com"><i class="fa-solid fa-envelope"></i> Contact Me</a></div>
       <div class="card"><a href="https://github.com/joeydufourd"><i class="fab fa-github"></i> GitHub</a></div>
     </section>
+
   </main>
 
   <footer>© <span id="year"></span> Joey Dufourd · Built with ❤️ · こんなに世界が綺麗だって気付かなかったな。。。</footer>
