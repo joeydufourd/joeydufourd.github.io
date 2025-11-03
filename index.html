@@ -81,6 +81,26 @@
       transform: scale(1.15);
     }
 
+.pod-toggle {
+  position: absolute;
+  bottom: 0;
+  right: 40px;           /* move it a bit left of the theme button */
+  background: #4fa9ff;
+  border: none;
+  color: white;
+  padding: 0.6em 0.7em;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 1.2em;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.4);
+  transition: background 0.3s, transform 0.2s;
+}
+
+.pod-toggle:hover {
+  background: #66bfff;
+  transform: scale(1.15);
+}
+
     header h1 { margin: 0; font-weight: 600; font-size: 2.2em; }
     header p { margin-top: 0.5em; font-size: 1.2em; font-weight: 300; }
 
@@ -199,6 +219,7 @@
       <div class="profile-container">
         <img src="./assets/joey.jpg" alt="Joey Dufourd" class="profile-pic" />
         <button class="theme-toggle" id="themeToggle" title="Change theme"><i class="fa-solid fa-moon"></i></button>
+        <button class="pod-toggle" id="podToggle" title="Activate Pod"><i class="fa-solid fa-robot"></i></button>
       </div>
       <h1>Joey Dufourd</h1>
       <p>Biology • Bioinformatics • Big data & Data Science</p>
@@ -315,11 +336,11 @@
 
     document.getElementById("year").textContent = new Date().getFullYear();
 
+    const podToggle = document.getElementById("podToggle");
+    pod.style.display = "none";
     if (localStorage.getItem("theme") === "light") {
-      body.classList.add("light");
-      toggle.innerHTML = '<i class="fa-solid fa-sun"></i>';
-    } else {
-      pod.style.display = "flex";
+    body.classList.add("light");
+    toggle.innerHTML = '<i class="fa-solid fa-sun"></i>';
     }
 
     toggle.addEventListener("click", () => {
@@ -329,6 +350,18 @@
       localStorage.setItem("theme", isLight ? "light" : "dark");
       pod.style.display = isLight ? "none" : "flex";
       podMsg.style.display = "none";
+    });
+
+    podToggle.addEventListener("click", () => {
+      if (pod.style.display === "none") {
+        pod.style.display = "flex";
+        podMsg.textContent = "[BOOT] Pod 042 online. Monitoring telomere activity...";
+        podMsg.style.display = "block";
+        setTimeout(() => { podMsg.style.display = "none"; }, 4000);
+      } else {
+        pod.style.display = "none";
+        podMsg.style.display = "none";
+      }
     });
 
     let podClicks = 0;
@@ -371,21 +404,22 @@
     }, 50);
 
     setInterval(() => {
-      if (!body.classList.contains("light") && Math.random() < 0.2) {
-        const msg = messages[Math.floor(Math.random() * messages.length)];
-        podMsg.textContent = msg;
-        podMsg.style.display = "block";
-        setTimeout(() => { podMsg.style.display = "none"; }, 4000);
-      }
+    if (pod.style.display === "flex" && !body.classList.contains("light") && Math.random() < 0.2) {
+    const msg = messages[Math.floor(Math.random() * messages.length)];
+    podMsg.textContent = msg;
+    podMsg.style.display = "block";
+    setTimeout(() => { podMsg.style.display = "none"; }, 4000);
+    }
     }, 10000);
 
     window.addEventListener("load", () => {
-      if (!body.classList.contains("light")) {
-        podMsg.textContent = "[BOOT] Pod 042 online. Monitoring telomere activity...";
-        podMsg.style.display = "block";
-        setTimeout(() => { podMsg.style.display = "none"; }, 4000);
-      }
+    if (pod.style.display === "flex" && !body.classList.contains("light")) {
+    podMsg.textContent = "[BOOT] Pod 042 online. Monitoring telomere activity...";
+    podMsg.style.display = "block";
+    setTimeout(() => { podMsg.style.display = "none"; }, 4000);
+    }
     });
+
   </script>
 </body>
 </html>
