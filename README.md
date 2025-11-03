@@ -18,7 +18,7 @@ The site includes:
 - [X] Upload CV and publications
 - [X] Continuous refinements to design & accessibility  
 - [X] Add dark/light theme toggle refinements  
-- [X] Added an easter egg robot 
+- [X] Added Pod 
 
 ---
 

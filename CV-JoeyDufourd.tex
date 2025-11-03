@@ -16,11 +16,15 @@
 \usepackage{parskip}
 \usepackage{fontawesome5}
 \usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage{qrcode}
+\usepackage{tikz}
+\usepackage{wrapfig}
 
 % ---- Compact section titles
 \titleformat{\section}{\LARGE\bfseries}{}{0pt}{}
 \titlespacing*{\section}{0pt}{10pt plus 1pt minus 1pt}{6pt}
-
+\definecolor{sapin}{HTML}{2E8B57}
 
 \setlist[itemize]{leftmargin=1.2em,itemsep=0.5pt,topsep=1pt}
 \newcommand{\sep}{\;\textbar\;}
@@ -37,16 +41,24 @@
   pdfproducer={LaTeX with hyperref},
   pdfcreator={pdflatex}
 }
-
-
-
 \begin{document}
-
 % =================== HEADER ===================
+%\newcommand{\ProfilePhoto}{./assets/joey.jpg}
+\newcommand{\PortfolioLink}{https://joeydufourd.github.io}
+\noindent
+% --- Left: Photo ---
+%\begin{tikzpicture}
+    %\clip (0,0) circle (1cm);
+    %\node at (0,0) {\includegraphics[height=1.6cm]{\ProfilePhoto}};
+%\end{tikzpicture}
+% --- Center: Name ---
 \begin{center}
-{\LARGE \textbf{Joey Dufourd, Ph.D.}}\\[4pt]
-\vspace{2pt}
-\rule{0.4\textwidth}{0.5pt}\\[8pt]
+    \centering
+    {\LARGE \textbf{Joey Dufourd, Ph.D.}}
+    \end{center}
+% --- Right: QR code ---
+\begin{center}
+\noindent{\color{sapin}\rule{0.4\textwidth}{0.6pt}}\\[8pt]
 \vspace{2pt}
 \faEnvelope~\href{mailto:joey.dufourd@gmail.com}{joey.dufourd@gmail.com} \sep \faPhone~+33 6 41 28 00 44 \sep
 \faGithub~\href{https://github.com/joeydufourd}{github.com/joeydufourd} \sep \faGlobe~\href{https://joeydufourd.github.io/}{https://joeydufourd.github.io} \sep
@@ -54,87 +66,93 @@
 \faLinkedin~\href{https://linkedin.com/in/joey-dufourd}{linkedin.com/in/joey-dufourd}
 \\[6pt]
 \vspace{2pt}
-\rule{0.8\textwidth}{0.5pt}\\[8pt]
+\noindent{\color{sapin}\rule{0.8\textwidth}{0.6pt}}\\[8pt]
 \vspace{2pt}
 \textbf{Research interests:} \textit{Life Science \sep Computational Biology \& BioInformatics \sep Chromatin \& Telomeres \sep Multi-omics \sep Machine Learning \sep Computer Vision \sep Big data \& Data Science}
 \end{center}
-
 % =================== SUMMARY ===================
 \vspace{1.5pt}
-\noindent\rule{\textwidth}{0.4pt}
+\noindent{\color{sapin}\rule{\textwidth}{0.6pt}}
 \section*{Profile}
 Molecular biologist with computational expertise, passionate about understanding life through science.
 My PhD on telomere biology combined advanced molecular and imaging approaches (3D-SIM, proteomics) with custom computational pipelines in Python and R for image analysis, statistical modeling, computer vision and data integration.
 Proficient in Bash, Python, and R, I leverage computational approaches to develop reproducible analytical workflows and explore complex biological systems.
 I am convinced that integrating the strengths of wet-lab experimentation with the power of computational approaches will accelerate discoveries and enable transformative advances in biomedical research.\\
-\noindent\rule{\textwidth}{0.4pt}
+\noindent\textcolor{sapin}{\rule{\textwidth}{0.6pt}}
 
 % =================== RESEARCH EXPERIENCE ===================
 \section*{Research Experience}
-\textbf{PhD Student --- Repeated sequences chromatin \& Computer vision} \hfill 10/2021--12/2025\hspace{0.3em}\\
-Institut de Génétique Humaine (CNRS), Montpellier, France \hfill \textit{\textbf{Supervisors:} J.\ Déjardin, M.\ Tardat}
+\textbf{M2 \& PhD --- Repeated sequences chromatin \& Computer vision} \hfill 02/2021--12/2025\hspace{0.3em}\\
+Institut de Génétique Humaine (CNRS), Montpellier, France \hfill \textit{\textbf{Supervisors:} J.\ Déjardin\footnote{jerome.dejardin@igh.cnrs.fr}, M.\ Tardat\footnote{mathieu.tardat@igh.cnrs.fr}}
+\begin{center}\emph{\textbf{Jury members:} S.\ Coulon, S.\ Marcand, K.\ Dubrana}\end{center}
 \begin{itemize}
   \item \textbf{Discovered and characterized TELS1}, a telomere binding \& mouse embryonic stem cell specific protein that stabilizes \textit{t-loops} independently of TRF2.
-  \item \textbf{Combined} PICh/IP-MS, ChIP, FISH (nuclei \& metaphases), microinjection of mouse embryos, CRISPR-Cas9, 3D-SIM super-resolution microscopy and other approches to investigate the role of TELS1 at telomeres.
-  \item Built \textbf{automation \& AI pipelines} (computer vision) to automate \textit{t-loop} quantification and microscopy analysis (CellProfiler).
-  \item Integrated imaging, proteomics, statistics and molecular data using \textbf{Python \& R}.
-  \item \textbf{Conducted statistical modeling and experimental design} (ANOVA and multiple-testing aware post-hoc).
-  \item \textbf{Co-founded and coordinate} the IGH Young Scientist Club (YSC), a monthly forum promoting collaboration and knowledge sharing among early-career researchers.
-  \item Delivered \textbf{seminars and workshops} on computational biology, statistics, and artificial intelligence for students and researchers at IGH.
-  \item \textbf{Taught} undergraduate courses in genetics and epigenetics.
-\renewcommand{\labelitemi}{\faTerminal}
-\renewcommand{\labelitemi}{\raisebox{0.2ex}{\scalebox{0.7}{\faTerminal}}}
-  \item \textbf{Tech stack:} Python (TensorFlow/PyTorch, scikit-learn, pandas, NumPy, Matplotlib,\ldots), R (tidyverse, ggplot2, Bioconductor, \ldots), Bash, 3D-SIM image processing, AlphaFold modeling, Git, statistical modeling (ANOVA, clustering, PCA), CellProfiler, ImageJ/Fiji.
+  \item Built \textbf{automation \& AI pipelines} (computer vision) to automate \textit{t-loop} quantification and microscopy analysis.
+  \item Conducted \textbf{statistical modeling \& experimental design}.
 \end{itemize}
-\renewcommand{\labelitemi}{\oldlabelitemi}
 
-
-\textbf{M2 Internship --- Repeated Sequences Chromatin} \hfill 02/2021--08/2021\hspace{0.3em}\\
-Institut de Génétique Humaine (CNRS), Montpellier, France
+\textbf{M1 Internship --- PRMT5 moonlighting} \hfill 02/2020--08/2020\hspace{0.3em}\\
+Stanford University (Van Rechem Lab), Stanford Medicine, USA \hfill \textit{\textbf{Supervisors:} C.\ Van Rechem\footnote{cvrechem@stanford.edu}}
 \begin{itemize}
-  \item Investigated telomeric chromatin structure and \textit{t-loop} stability in \textbf{mouse embryonic stem cell and embryo-like structures}.
-  \item \textbf{Analyzed sequencing data}, performed R-based statistical analyses, and quantified images using CellProfiler (normality tests, ANOVA, Bonferroni-corrected tests).
-  \item \textbf{Integrated experimental and computational approaches} to identify novel regulators of telomere structure and chromatin dynamics.
+  \item Characterized \textbf{non-canonical cytoplasmic functions of PRMT5} in cancer biology; applied RNAi, polysome profiling (sucrose gradients), and confocal imaging.
 \end{itemize}
 
-\textbf{M1 Internship --- Stanford University (Van Rechem Lab)} \hfill 02/2020--08/2020\hspace{0.3em}\\
-Stanford Medicine, USA
-\begin{itemize}
-  \item Characterized non-canonical cytoplasmic functions of \textbf{PRMT5} in cancer biology; applied RNAi, polysome profiling (sucrose gradients), and confocal imaging.
-  \item Managed and performed experiments across $>$10 different cancer cell lines in parallel, \textbf{ensuring reproducibility and consistency of results}.
-\end{itemize}
-
-\textbf{iGEM Team Leader \& Project Inventor --- Montpellier} \hfill 11/2018--11/2019\hspace{0.3em}\\
-\emph{International Genetically Engineered Machine (iGEM) Competition --- Gold Medal}\\
-\emph{Project:} \href{https://2019.igem.org/Team:Montpellier}{\textbf{KARMA}} --- an innovative molecular system for targeted protein degradation.
+\textbf{iGEM Team Leader \& Project Inventor --- KARMA project} \hfill 11/2018--11/2019\hspace{0.3em}\\
+\emph{International Genetically Engineered Machine (iGEM) Competition --- Gold Medal}
 \begin{itemize}
   \item Conceived and led the \textbf{KARMA project}, a modular tool combining specific recognition antibodies with a targeted degradation protease to selectively remove proteins, with potential applications in cancer and antibiotic resistance.
-  \item \textbf{Supervised and coordinated} a multidisciplinary team of 14 students (biology, bioinformatics, and engineering) through project design, cloning, modeling, and validation phases.
-  \item Built and maintained the \textbf{project website and wiki}, ensuring clear and accessible communication of objectives and results (\href{https://2019.igem.org/Team:Montpellier}{igem.org/Team:Montpellier}).
+  \item \textbf{Supervised and coordinated} a multidisciplinary team of 14 students (biology, bioinformatics, and engineering) through project design, cloning, modeling, and validation phases; within an international competition framework.
+  \item \textbf{Built and maintained the project website and wiki}, ensuring clear and accessible communication of objectives and results. (\faGlobe~\href{https://2019.igem.org/Team:Montpellier}{igem.org/Team:Montpellier})
   \item \textbf{Led public engagement initiatives} (\textit{Carascience}) to present the project and basic biology to schools and the general public.
-  \item Strengthened skills in \textbf{project management, communication, synthetic biology, bioinformatic coding, statistical analysis, and web development} within an international competition framework.
 \end{itemize}
 
-\textbf{Research Intern --- CNRS (DIMNP \& IGF, Montpellier)} \hfill 10/2018--12/2018\hspace{0.3em}\\
-\emph{Supervised by Prof. Ovidiu Radulescu (DIMNP)} --- Project on mathematical modeling of HIV latency and apoptosis mechanisms.
+\textbf{Research Intern --- Mathematical modeling of HIV latency.)} \hfill 10/2018--12/2018\hspace{0.3em}\\
+CNRS (DIMNP \& IGF), Montpellier \hfill \textit{\textbf{Supervisors:} O.\ Radulescu\footnote{ovidiu.radulescu@umontpellier.fr}}
 \begin{itemize}
   \item Designed and analyzed \textbf{multiscale computational models} of HIV latency to explore viral persistence and reactivation dynamics across molecular, cellular, and population scales.
-  \item Applied \textbf{stochastic simulations (Gillespie algorithm)} and differential modeling to investigate latency transitions; developed reusable scripts later adapted to model telomere state dynamics (\href{https://github.com/joeydufourd/telomere-dynamics-gillespie}{\texttt{github.com/joeydufourd/telomere-dynamics-gillespie}}).
-  \item Strengthened skills in \textbf{quantitative biology, dynamical systems, and data analysis} applied to virology and cell fate modeling.
+  \item Applied \textbf{stochastic simulations (Gillespie algorithm)} and differential modeling to investigate latency transitions; developed reusable scripts later adapted to model telomere state dynamics
+  \\\emph{(\faGithub~\href{https://github.com/joeydufourd/telomere-dynamics-gillespie}{joeydufourd/telomere-dynamics-gillespie})}.
 \end{itemize}
 
 \vspace{2pt}
-\noindent\rule{\textwidth}{0.4pt}
+\noindent\textcolor{sapin}{\rule{\textwidth}{0.6pt}}
 % =================== PUBLICATIONS ===================
 \section*{Publications \& Manuscripts}
 \renewcommand{\labelitemi}{\faBook}
 \begin{itemize}
   \item \textbf{Dufourd J.} et al. \textit{TELS1 stabilizes telomeric \textit{t}-loops independently of TRF2 in pluripotent cells.} (2025).
-  \item \textbf{Dufourd J.} \textit{AI-assisted image analysis for telomeric structure detection and quantification.} In preparation (2025?).
+  \item \textbf{Dufourd J.} et al. \textit{AI-assisted image analysis for telomeric structure detection and quantification.} In preparation (2026?).
 \end{itemize}
 \renewcommand{\labelitemi}{\oldlabelitemi}
 \vspace{2pt}
-\noindent\rule{\textwidth}{0.4pt}
+\noindent\textcolor{sapin}{\rule{\textwidth}{0.6pt}}
+% =================== SELECTED METHODS \& SKILLS ===================   CellProfiler, Fiji.
+\section*{Skills} % \& Awards
+\begin{itemize}
+    \renewcommand{\labelitemi}{\raisebox{0.2ex}{\scalebox{0.7}{\faTerminal}}}
+    \item \textbf{Computational:} Python (NumPy, scikit-learn, pandas, TensorFlow, PyTorch, Matplotlib, \ldots), R (tidyverse, ggplot2, Bioconductor, \ldots), Bash, Image analysis (CellProfiler, ImageJ/Fiji), Computer vision, Machine \& Deep Learning, AlphaFold modeling, Git, \ldots
+    \renewcommand{\labelitemi}{\raisebox{0.2ex}{\scalebox{1}{\faFlask}}}
+    \item \textbf{Experimental:} CRISPR/Cas9, ChIP, PICh/IP-MS, FISH (nuclei \& metaphase), microinjection of mouse embryos, 3D-SIM microscopy, Proteomics, RT-qPCR, Immunofluorescence, \ldots
+    \renewcommand{\labelitemi}{\raisebox{0.2ex}{\scalebox{1}{\faChartLine}}}
+    \item \textbf{Data Science:} Multi-omics integration, statistical modeling (ANOVA, linear models, clustering/PCA), reproducible pipelines, documentation, \ldots
+    \renewcommand{\labelitemi}{\raisebox{0.2ex}{\scalebox{1}{\faCommentDots}}}
+    \item \textbf{Communication:} Teaching (genetics, epigenetics), oral presentations, mentoring, scientific writing.
+\end{itemize} \renewcommand{\labelitemi}{\oldlabelitemi}
+\vspace{2pt}
+\noindent\textcolor{sapin}{\rule{\textwidth}{0.6pt}}
+% =================== EDUCATION ===================
+\section*{Education}
+\textbf{PhD in Genetics, Epigenetics and Cellular Determinism} \hfill 2021--2025\hspace{0.3em}\\
+Université de Montpellier --- Institut de Génétique Humaine (CNRS), France
+
+\textbf{MSc in Genetics \& Cellular Biology} \hfill 2019--2021\\
+Université de Montpellier, Faculté des Sciences, France
+
+\textbf{BSc in Molecular Biology} \hfill 2016--2019\\
+Université de Montpellier, Faculté des Sciences, France\\
+\vspace{2pt}
+%\noindent\textcolor{sapin}{\rule{\textwidth}{0.6pt}}
+
 % =================== Projects Highlights ===================
 \section*{Projects Highlights}
 \begin{itemize}
@@ -145,59 +163,43 @@ Stanford Medicine, USA
   \item \textbf{KARMA (iGEM 2019)} — Led the development of a modular protein degradation system; awarded Gold Medal.
 \end{itemize}
 \vspace{2pt}
-\noindent\rule{\textwidth}{0.4pt}
-% =================== EDUCATION ===================
-\section*{Education}
-\textbf{PhD in Genetics, Epigenetics and Cellular Determinism} \hfill 2021--2025\hspace{0.3em}\\
-Université de Montpellier --- Institut de Génétique Humaine (CNRS), France
+\noindent\textcolor{sapin}{\rule{\textwidth}{0.6pt}}
 
-\textbf{MSc in Genetics \& Cellular Biology} \hfill 2019--2021\\
-Université de Montpellier, France
-
-\textbf{BSc in Molecular Biology} \hfill 2016--2019\\
-Université de Montpellier, France\\
-\vspace{2pt}
-\noindent\rule{\textwidth}{0.4pt}
-% =================== SELECTED METHODS \& SKILLS ===================
-\section*{Skills}
-\begin{itemize}
-    \item \textbf{Computational:} Python (NumPy, pandas, TensorFlow, PyTorch), R (tidyverse, ggplot2, Bioconductor), Bash, Image analysis (CellProfiler, Fiji), Computer vision, Machine \& Deep Learning, Statistics, \ldots.
-    \item \textbf{Experimental:} CRISPR/Cas9, ChIP, PICh, FISH (nuclei/metaphase), 3D-SIM microscopy, Proteomics, RT-qPCR, Immunofluorescence, \ldots.
-    \item \textbf{Data Science:} Multi-omics integration, statistical modeling (ANOVA, linear models, clustering/PCA), reproducible pipelines, documentation, \ldots.
-    \item \textbf{Communication:} Teaching (genetics, epigenetics), oral presentations, mentoring, scientific writing.
-\end{itemize}
-\vspace{2pt}
-\noindent\rule{\textwidth}{0.4pt}
 % =================== TEACHING ===================
 \section*{Teaching}
 \renewcommand{\labelitemi}{\faChalkboardTeacher}
 \begin{itemize}
-    \item Undergraduate teaching (Genetics \& Epigenetics): lectures and practicals for 2nd–3rd year students.
-    \item Workshops and seminars on computational biology: taught introductory sessions on programming (Python, R), statistics, machine learning, and artificial intelligence for life scientists.
+    \item \textbf{Co-founded and coordinate} the IGH Young Scientist Club (YSC), a monthly forum promoting collaboration and knowledge sharing among early-career researchers.
+    \item \textbf{Undergraduate teaching} (Genetics \& Epigenetics): lectures and practicals for 2nd–3rd year students.
+    \item \textbf{Taught introductory sessions} on programming (Python, R), statistics, machine learning, and artificial intelligence for life scientists.
 \end{itemize}
 \renewcommand{\labelitemi}{\oldlabelitemi}
 %\vspace{2pt}
-%\noindent\rule{\textwidth}{0.4pt}
+\noindent\textcolor{sapin}{\rule{\textwidth}{0.6pt}}
 % =================== Leadership \& Community Involvement ===================
 %\section*{Leadership \& Community Involvement}
 %\textbf{Co-founder and Coordinator – Young Scientist Club (YSC), IGH Montpellier} \hfill 2023–Present\\
 %Co-organized the institute’s Young Scientist Club; created a monthly forum fostering collaboration and knowledge exchange among PhD students, postdocs, and engineers; strengthening the institute’s research community.\\
 %\vspace{2pt}
-%\noindent\rule{\textwidth}{0.4pt}
+%\noindent\textcolor{sapin}{\rule{\textwidth}{0.6pt}}
 %\vspace{1pt}
 % =================== AWARDS ===================
 %\section*{Awards \& Honors}
 %iGEM Montpellier (2019): \textbf{Gold medal}.\\
 %\vspace{2pt}
-%\noindent\rule{\textwidth}{0.4pt}
+%\noindent\textcolor{sapin}{\rule{\textwidth}{0.6pt}}
 %\vspace{2pt}
 % =================== LANGUAGES ===================
-%\section*{Languages}
-%French (native), English (C2), Japanese (B2).\\
-%\vspace{2pt}
-%\noindent\rule{\textwidth}{0.4pt}
+\section*{Languages}
+French (native), English (C2), Japanese (B2).\\
+\vspace{2pt}
+%\noindent\textcolor{sapin}{\rule{\textwidth}{0.6pt}}
 % =================== REFERENCES ===================
 %\section*{References}
 %Available upon request.
+
+\begin{center}
+    \qrcode[height=2cm]{\PortfolioLink}
+\end{center}
 
 \end{document}

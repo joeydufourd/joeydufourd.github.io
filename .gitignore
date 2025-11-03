@@ -7,4 +7,8 @@
 !/assets/CV-JoeyDufourd.log
 !/assets/CV-JoeyDufourd.out
 !/.gitignore
-
+!/MotivationLetter.tex
+!/assets/MotivationLetter.aux
+!/assets/MotivationLetter.log
+!/assets/MotivationLetter.out
+!/assets/MotivationLetter.pdf
